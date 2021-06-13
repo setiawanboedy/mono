@@ -5,6 +5,7 @@
   border: 0;
   text-decoration: none;
   box-sizing: border-box;
+  transition: all 0.2s;
 }
 
 h1 {
@@ -85,13 +86,8 @@ h1 {
   justify-content: center;
 }
 
-.button-container > a {
-  transition: all 0.2s;
-}
-
 .button-container > a:hover {
   box-shadow: #aaa 0 2.5px 1rem;
-  transition: all 0.2s;
 }
 
 .jumbotron-overlay {
@@ -197,12 +193,29 @@ h1 {
 }
 
 .contact a {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: black;
   font-weight: bold;
 }
 
-@media only screen and (min-width: 1024px) {
+.contact a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 600px) {
+  .feature-container-image img {
+    margin: 7.5% 25% -20% 25%;
+    width: 40%;
+    border-radius: 2.25rem;
+    border: 0.95rem solid black;
+  }
+
+  .feature-container-text {
+    padding: 2rem 15% 2rem 2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
   .hide-mobile {
     display: inline-block;
   }
@@ -211,6 +224,63 @@ h1 {
     flex-direction: row-reverse !important;
   }
 
+  .feature-container {
+    flex-direction: row;
+  }
+
+  .header {
+    padding: 1rem 3rem;
+  }
+
+  .feature-container-text {
+    padding: 3rem;
+    width: 50vw;
+  }
+
+  .feature-container-image {
+    width: 50vw;
+  }
+
+  .feature-container-image img {
+    margin: 7.5% 25% -20% 25%;
+    width: 50%;
+    border-radius: 2.25rem;
+    border: 0.95rem solid black;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .jumbotron > .button-container {
+    flex-direction: row;
+    width: 35rem;
+  }
+
+  .jumbotron > .button-container #app-store {
+    margin-right: 2rem;
+  }
+
+  .jumbotron-inner-container {
+    flex-direction: row;
+    align-self: center;
+  }
+
+  .app-icon-container {
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+
+  .feature-container-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-container-text p {
+    font-size: 1rem;
+    line-height: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   h1 {
     font-size: 4rem;
   }
@@ -227,25 +297,17 @@ h1 {
     font-size: 2rem;
   }
 
-  .jumbotron-inner-container {
-    flex-direction: row;
-    align-self: center;
+  .feature-container-text {
+    padding: 5rem 10rem 5rem 5rem;
+    width: 50vw;
   }
 
   .jumbotron > .button-container {
     margin-top: 1rem;
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-  }
-
-  .jumbotron > .button-container #app-store {
-    margin-right: 2rem;
   }
 
   .jumbotron a {
     margin-top: 2rem;
-    background-color: black;
     padding: 1rem 2rem;
     font-size: 1.5rem;
   }
@@ -263,13 +325,11 @@ h1 {
     margin-left: 0.25rem;
   }
 
-  .feature-container {
-    flex-direction: row;
-  }
-
-  .feature-container-text {
-    padding: 5rem 10rem 5rem 5rem;
-    width: 50vw;
+  .feature-container-image img {
+    margin: 7.5% 30% -12.5% 30%;
+    width: 40%;
+    border-radius: 2.25rem;
+    border: 0.95rem solid black;
   }
 
   .feature-container-text h2 {
@@ -280,17 +340,6 @@ h1 {
   .feature-container-text p {
     font-size: 1.2rem;
     line-height: 1.8rem;
-  }
-
-  .feature-container-image {
-    width: 50vw;
-  }
-
-  .feature-container-image img {
-    margin: 7.5% 30% -12.5% 30%;
-    width: 40%;
-    border-radius: 2.25rem;
-    border: 0.95rem solid black;
   }
 
   .contact {
