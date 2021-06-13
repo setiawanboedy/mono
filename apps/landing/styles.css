@@ -11,6 +11,10 @@ h1 {
   font-size: 2.5rem;
 }
 
+.hide-mobile {
+  display: none;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -20,6 +24,7 @@ h1 {
   position: fixed;
   width: 100vw;
   color: white;
+  z-index: 10;
 }
 
 .header img {
@@ -31,7 +36,7 @@ h1 {
   margin-left: auto;
   background-color: white;
   color: black;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 2rem;
   font-weight: bold;
 }
@@ -43,6 +48,13 @@ h1 {
   align-items: center;
   justify-content: center;
   height: 90vh;
+  background-image: url("./assets/map.png");
+  background-size: cover;
+  z-index: 1;
+}
+
+.jumbotron > * {
+  z-index: 3;
 }
 
 .jumbotron img {
@@ -67,8 +79,36 @@ h1 {
   width: 100%;
 }
 
+.jumbotron-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-container > a {
+  transition: all 0.2s;
+}
+
+.button-container > a:hover {
+  box-shadow: #aaa 0 2.5px 1rem;
+  transition: all 0.2s;
+}
+
+.jumbotron-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  z-index: 2;
+
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .jumbotron-inner-container {
   display: flex;
+  flex-direction: column;
+  align-self: start;
 }
 
 .jumbotron a {
@@ -81,6 +121,24 @@ h1 {
   color: white;
   font-weight: bold;
   text-align: center;
+}
+
+.app-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: #ccc 0 5px 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.app-icon-container img {
+  width: 3rem;
+  margin-right: 0;
+  margin-left: 0.125rem;
 }
 
 .feature-container {
@@ -116,11 +174,11 @@ h1 {
 }
 
 .feature-container-image img {
-  margin: 7.5% 30% -12.5% 30%;
-  width: 40%;
+  margin: 15% 20% -20% 20%;
+  width: 60%;
   border-radius: 1.25rem;
   border: 0.5rem solid black;
-  box-shadow: #565656 0 5px 2.5rem;
+  box-shadow: #565656 0 5px 1.25rem;
 }
 
 .contact {
@@ -145,6 +203,14 @@ h1 {
 }
 
 @media only screen and (min-width: 1024px) {
+  .hide-mobile {
+    display: inline-block;
+  }
+
+  .desktop-reverse {
+    flex-direction: row-reverse !important;
+  }
+
   h1 {
     font-size: 4rem;
   }
@@ -157,13 +223,13 @@ h1 {
     padding: 3rem 0 0 0;
   }
 
-  .jumbotron img {
-    width: 8rem;
-    margin-right: 3rem;
-  }
-
   .jumbotron h3 {
     font-size: 2rem;
+  }
+
+  .jumbotron-inner-container {
+    flex-direction: row;
+    align-self: center;
   }
 
   .jumbotron > .button-container {
@@ -184,13 +250,26 @@ h1 {
     font-size: 1.5rem;
   }
 
+  .app-icon-container {
+    width: 9.5rem;
+    height: 9.5rem;
+    margin-right: 3rem;
+    margin-bottom: 0;
+  }
+
+  .app-icon-container img {
+    width: 5rem;
+    margin-right: 0;
+    margin-left: 0.25rem;
+  }
+
   .feature-container {
     flex-direction: row;
   }
 
   .feature-container-text {
     padding: 5rem 10rem 5rem 5rem;
-    width: calc(50vw - 10px);
+    width: 50vw;
   }
 
   .feature-container-text h2 {
@@ -204,7 +283,7 @@ h1 {
   }
 
   .feature-container-image {
-    width: calc(50vw - 10px);
+    width: 50vw;
   }
 
   .feature-container-image img {
