@@ -4,6 +4,7 @@
   padding: 0;
   border: 0;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .header {
@@ -13,7 +14,7 @@
   background-color: black;
   padding: 1rem 6rem;
   position: fixed;
-  width: calc(100vw - 12rem);
+  width: 100vw;
   color: white;
 }
 
@@ -77,4 +78,43 @@
   border-radius: 0.5rem;
   color: white;
   font-weight: bold;
+}
+
+.feature-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.feature-container-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: black;
+  padding: 4rem;
+  width: 50vw;
+}
+
+.feature-container-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.feature-container-text p {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.feature-container-image {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50vw;
+}
+
+.feature-container-image img {
+  margin: 5% 30% -15% 30%;
+  width: 40%;
+  border-radius: 1rem;
+  box-shadow: #ababab 0 1rem 3rem;
 }
