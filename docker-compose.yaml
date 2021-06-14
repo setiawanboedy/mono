@@ -1,4 +1,4 @@
-version: "3.7"
+version: 3.7
 
 services:
   db:
@@ -8,13 +8,13 @@ services:
     image: budipest_db
     container_name: budipest_db
     ports:
-      - "5437:5432"
+      - 5437:5432
     stdin_open: true
     tty: true
     volumes:
-      - ./db/backups:/.tmp
+      - ./apps/db/backups:/.tmp
     env_file:
-      - ./db/config/.env
+      - ./apps/db/config/.env
 
   db_test:
     build:
@@ -22,11 +22,11 @@ services:
       dockerfile: ./Dockerfile
     container_name: budipest_db_test
     ports:
-      - "5438:5432"
+      - 5438:5432
     stdin_open: true
     tty: true
     env_file:
-      - ./db/config/pipeline.env
+      - ./apps/db/config/pipeline.env
 
   api:
     build:
@@ -40,7 +40,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./api:/opt/code
+      - ./apps/api:/opt/code
       - /opt/code/node_modules
     environment:
       - ENVIRONMENT=development
@@ -65,8 +65,8 @@ services:
     image: budipest_admin
     container_name: budipest_admin
     volumes:
-      - "./admin:/opt/code"
-      - "/opt/code/node_modules"
+      - ./apps/admin:/opt/code
+      - /opt/code/node_modules
     ports:
       - 3101:3001
     stdin_open: true
@@ -82,7 +82,7 @@ services:
     image: budipest_landing
     container_name: budipest_landing
     volumes:
-      - "./landing:/opt/code"
+      - ./apps/landing:/opt/code
     ports:
       - 8081:80
     stdin_open: true
