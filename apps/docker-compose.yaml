@@ -1,0 +1,89 @@
+version: "3.7"
+
+services:
+  db:
+    build:
+      context: ./db
+      dockerfile: ./Dockerfile
+    image: budipest_db
+    container_name: budipest_db
+    ports:
+      - "5437:5432"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./db/backups:/.tmp
+    env_file:
+      - ./db/config/.env
+
+  db_test:
+    build:
+      context: ./db
+      dockerfile: ./Dockerfile
+    container_name: budipest_db_test
+    ports:
+      - "5438:5432"
+    stdin_open: true
+    tty: true
+    env_file:
+      - ./db/config/pipeline.env
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: budipest_api
+    container_name: budipest_api
+    ports:
+      - 3100:3000
+      - 9229:9229
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./api:/opt/code
+      - /opt/code/node_modules
+    environment:
+      - ENVIRONMENT=development
+      - PROD=false
+      - HTTPS=false
+      - APP_ID=budipest-backend
+      - PORT=3000
+      - DB_USER=budipest
+      - DB_PASS=bdpst1234
+      - DB_NAME=budipest_development
+      - DB_HOST=budipest_db
+      - DB_PORT=5432
+
+    depends_on:
+      - db
+      # - db_test
+
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    image: budipest_admin
+    container_name: budipest_admin
+    volumes:
+      - "./admin:/opt/code"
+      - "/opt/code/node_modules"
+    ports:
+      - 3101:3001
+    stdin_open: true
+    tty: true
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+
+  landing:
+    build:
+      context: ./landing
+      dockerfile: Dockerfile
+    image: budipest_landing
+    container_name: budipest_landing
+    volumes:
+      - "./landing:/opt/code"
+    ports:
+      - 8081:80
+    stdin_open: true
+    tty: true
