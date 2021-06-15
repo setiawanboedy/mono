@@ -1,18 +1,23 @@
-# base image
-FROM node:16.3.0-alpine
+# build nest api
+FROM node:16.3.0-alpine AS build
+
+WORKDIR /opt/code
+
+COPY . /opt/code/
+
+RUN npm install --only=development
+
+RUN npm run build
+
+# --------------------------------------------------------
+FROM node:16.3.0-alpine AS production
 
 # set working directory
 WORKDIR /opt/code
 
-# add `/usr/src/app/node_modules/.bin` and `/usr/local/bin` to $PATH
-ENV PATH /usr/local/bin:/opt/code/node_modules/.bin:$PATH
-
 # install and cache app dependencies
-COPY package.json /opt/code/package.json
-RUN apk --no-cache add --virtual builds-deps build-base && \
-    npm install react-scripts@4.0.3 && \
-    npm install && \
-    apk del builds-deps
+COPY . /opt/code/
+COPY --from=build /opt/code/dist ./dist
 
 # start app
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start:prod"]
