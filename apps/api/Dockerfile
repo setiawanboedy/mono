@@ -19,5 +19,7 @@ WORKDIR /opt/code
 COPY . /opt/code/
 COPY --from=build /opt/code/dist ./dist
 
+RUN npm install
+
 # start app
 CMD ["npm", "run", "start:prod"]
