@@ -1,0 +1,9 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    sort_pub_dependencies: false
+    sort_constructors_first: true
+    prefer_double_quotes: true
+    always_specify_types: true
+    lines_longer_than_80_chars: true
