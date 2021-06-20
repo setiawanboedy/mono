@@ -30,12 +30,16 @@ dev_dependencies:
   lint: 1.5.3
 
 flutter:
-  generate: true
-
   uses-material-design: true
 
   assets:
     - assets/
+
+    - assets/fonts/
+
+    - assets/locales/
+
+    - assets/map_styles/
 
     # bottom bar icons
     - assets/icons/bottom/
@@ -47,11 +51,11 @@ flutter:
     - assets/icons/pin/
 
   fonts:
-    - family: Muli
+    - family: Mulish
       fonts:
-        - asset: fonts/Muli-Regular.ttf
+        - asset: assets/fonts/Mulish-Regular.ttf
           weight: 500
-        - asset: fonts/Muli-Bold.ttf
+        - asset: assets/fonts/Mulish-Bold.ttf
           weight: 700
 
 flutter_icons:
