@@ -11,7 +11,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyASK6nRQDQigpdU5k_WrD8EAZGDJ_daEX0" />
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBVVqXnw26K3dwQyTnakbN5IzjYQXnvvnU" />
     <meta-data android:name="flutterEmbedding" android:value="2" />
   </application>
 </manifest>
