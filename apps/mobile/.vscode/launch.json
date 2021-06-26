@@ -5,12 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "mobile",
+      "name": "budipest",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "mobile (profile mode)",
+      "name": "budipest (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
