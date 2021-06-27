@@ -1,0 +1,4 @@
+enum Tag {
+  wheelchairAccessible,
+  babyRoom,
+}

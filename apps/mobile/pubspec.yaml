@@ -34,20 +34,12 @@ flutter:
 
   assets:
     - assets/
-
     - assets/fonts/
-
     - assets/locales/
-
     - assets/map_styles/
-
-    # bottom bar icons
+    - assets/icons/
     - assets/icons/bottom/
-
-    # suggest edit icons
     - assets/icons/edit/
-
-    # map marker icons - light
     - assets/icons/pin/
 
   fonts:

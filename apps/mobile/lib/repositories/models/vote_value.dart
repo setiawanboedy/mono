@@ -1,0 +1,4 @@
+enum VoteValue {
+  upvote,
+  downvote,
+}
